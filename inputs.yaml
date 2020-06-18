@@ -1,0 +1,8 @@
+normal_inputs:
+- - data/fastqs/24385-200_AH5G7WCCXX_S4_L004_R1_001.fastq.gz
+  - data/fastqs/24385-200_AH5G7WCCXX_S4_L004_R2_001.fastq.gz
+normal_name: normal
+tumor_inputs:
+- - data/fastqs/24385-12878-30-200_R1_001.fastq.gz
+  - data/fastqs/24385-12878-30-200_R2_001.fastq.gz
+tumor_name: tumour
