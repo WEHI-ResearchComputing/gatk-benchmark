@@ -1,0 +1,8 @@
+normal_inputs:
+- - data/fastqs/chr18_R1.normal.fastq.gz
+  - data/fastqs/chr18_R2.normal.fastq.gz
+normal_name: normal
+tumor_inputs:
+- - data/fastqs/chr18_R1.tumor.fastq.gz
+  - data/fastqs/chr18_R1.tumor.fastq.gz
+tumor_name: tumour
