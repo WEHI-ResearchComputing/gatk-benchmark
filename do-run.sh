@@ -23,7 +23,7 @@ fi
 
 case $DATASET in
   wgs) HINT=90x ;;
-  chr19) HINT=chromosome
+  chr18) HINT=chromosome ;;
 esac
 
 . venv/bin/activate
