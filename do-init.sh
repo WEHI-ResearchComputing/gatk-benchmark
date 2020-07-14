@@ -3,9 +3,10 @@
 #---------------------------------------------------------
 # This bit will need to be modified for your enviroment
 module purge
-module load python/3.7.0
-module load google-cloud-sdk
-module load samtools/1.9
+# WEHI
+#module load python/3.7.0 samtools/1.9 bwa
+# spartan
+module load Python SAMtools tabix BWA web_proxy
 #---------------------------------------------------------
 
 REF_DIR=data/reference
@@ -89,7 +90,7 @@ if [ ! -f "${REF_DIR}/Homo_sapiens_assembly38.fasta.sa" ]; then
 fi
 if [ ! -f "${REF_DIR}/Homo_sapiens_assembly38.dbsnp138.vcf.gz.tbi" ]; then
   echo Downloading Homo_sapiens_assembly38.dbsnp138.vcf
-  gsutil -o GSUtil:check_hashes=never cp -n gs://genomics-public-${REF_DIR}/hg38/v0/Homo_sapiens_assembly38.dbsnp138.vcf ${REF_DIR}/
+  gsutil -o GSUtil:check_hashes=never cp -n gs://genomics-public-data/references/hg38/v0/Homo_sapiens_assembly38.dbsnp138.vcf${REF_DIR}/
   echo bgzip Homo_sapiens_assembly38.dbsnp138.vcf
   bgzip ${REF_DIR}/Homo_sapiens_assembly38.dbsnp138.vcf
   tabix ${REF_DIR}/Homo_sapiens_assembly38.dbsnp138.vcf.gz

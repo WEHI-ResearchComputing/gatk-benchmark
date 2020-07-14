@@ -29,7 +29,7 @@ case $BATCH_SYSTEM in
     ;;
 
   slurm)
-    SUB_CMD="sbatch --job-name GATK-init-benchmark --cpus-per-task=2 --mem=4G --nodes=1 --time=24:00:00"
+    SUB_CMD="sbatch --job-name GATK-init-benchmark --cpus-per-task=2 --mem=8G --nodes=1 --time=24:00:00"
     ;;
 
   pbs)

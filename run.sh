@@ -2,12 +2,14 @@
 
 BATCH_SYSTEM=NONE
 DATASET=NONE
+QUEUE=NONE
 
-while getopts 'b:d:' c
+while getopts 'b:d:q:' c
 do
   case $c in
     b) BATCH_SYSTEM=${OPTARG,,} ;;
     d) DATASET=${OPTARG,,} ;;
+    q) QUEUE=${OPTARG}
   esac
 done
 
@@ -25,11 +27,17 @@ fi
 CMD="./do-run.sh -d $DATASET -b $BATCH_SYSTEM"
 case $BATCH_SYSTEM in
   slurm)
-    SUB_CMD="sbatch --job-name GATK-run-benchmark --cpus-per-task=2 --mem=4G --nodes=1 --partition long --time=240:00:00"
+    if [ -z "$QUEUE" ]; then
+	partition="--partition $QUEUE"
+    fi
+    SUB_CMD="sbatch --job-name GATK-run-benchmark --cpus-per-task=2 --mem=4G --nodes=1 ${partition} --time=48:00:00"
     ;;
 
   pbs)
-    SUB_CMD="qsub -l nodes=1:ppn=2,mem=4gb,walltime=240:00:00 -j oe -N GATK-run-benchmark"
+    if [ -z "$QUEUE" ]; then
+        queue="-q $QUEUE"
+    fi
+    SUB_CMD="qsub -l nodes=1:ppn=2,mem=4gb,walltime=240:00:00 -j oe -N GATK-run-benchmark ${queue}"
     ;;
 esac
 
