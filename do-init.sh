@@ -6,7 +6,7 @@ module purge
 # WEHI
 #module load python/3.7.0 samtools/1.9 bwa
 # spartan
-module load Python SAMtools tabix BWA web_proxy
+module load python/3.8.2
 #---------------------------------------------------------
 
 REF_DIR=data/reference
@@ -32,7 +32,7 @@ if [ ! -d venv ]; then
 
   virtualenv venv
   . venv/bin/activate
-  pip install janis-pipelines
+  pip install janis-pipelines==0.9.5
   pip install gsutil
   deactivate
 

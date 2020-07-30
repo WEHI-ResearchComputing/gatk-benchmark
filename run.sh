@@ -30,7 +30,7 @@ case $BATCH_SYSTEM in
     if [ -z "$QUEUE" ]; then
 	partition="--partition $QUEUE"
     fi
-    SUB_CMD="sbatch --job-name GATK-run-benchmark --cpus-per-task=2 --mem=4G --nodes=1 ${partition} --time=48:00:00"
+    SUB_CMD="sbatch --job-name GATK-run-benchmark --cpus-per-task=2 --mem=4G --nodes=1 ${partition} --time=100:00:00 -A punim0930"
     ;;
 
   pbs)

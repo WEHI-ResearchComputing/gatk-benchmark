@@ -6,8 +6,9 @@ module purge
 # WEHI
 #module load python/3.7.0 samtools/1.9 bwa
 # spartan
-module load Python Singularity web_proxy Java
+module load python/3.8.2 samtools/1.9 tabix/0.2.6 bwa/0.7.17 web_proxy java singularity/3.5.3
 #---------------------------------------------------------
+python --version
 
 BATCH_SYSTEM=NONE
 DATASET=NONE
