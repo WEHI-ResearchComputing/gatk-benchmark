@@ -8,6 +8,7 @@ module load python/3.7.0 samtools/1.9 bwa singularity/3.5.2
 # spartan
 #module load Python Singularity web_proxy Java
 #---------------------------------------------------------
+python --version
 
 BATCH_SYSTEM=NONE
 DATASET=NONE
