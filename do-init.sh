@@ -6,11 +6,7 @@ module purge
 # WEHI
 module load python/3.7.0 samtools/1.9 bwa
 # spartan
-<<<<<<< HEAD
 #module load Python SAMtools tabix BWA web_proxy
-=======
-module load python/3.8.2
->>>>>>> 49cf1bc3abf3eab226bd3f95a145ad28f31c03d4
 #---------------------------------------------------------
 
 REF_DIR=data/reference
@@ -36,14 +32,7 @@ if [ ! -d venv ]; then
 
   virtualenv venv
   . venv/bin/activate
-<<<<<<< HEAD
   pip install -r requirements.txt
-#  pip install janis-pipelines
-#  pip install gsutil
-=======
-  pip install janis-pipelines==0.9.5
-  pip install gsutil
->>>>>>> 49cf1bc3abf3eab226bd3f95a145ad28f31c03d4
   deactivate
 
   echo done
@@ -100,7 +89,7 @@ if [ ! -f "${REF_DIR}/Homo_sapiens_assembly38.fasta.sa" ]; then
 fi
 if [ ! -f "${REF_DIR}/Homo_sapiens_assembly38.dbsnp138.vcf.gz.tbi" ]; then
   echo Downloading Homo_sapiens_assembly38.dbsnp138.vcf
-  gsutil -o GSUtil:check_hashes=never cp -n gs://genomics-public-data/references/hg38/v0/Homo_sapiens_assembly38.dbsnp138.vcf${REF_DIR}/
+  gsutil -o GSUtil:check_hashes=never cp -n gs://genomics-public-data/references/hg38/v0/Homo_sapiens_assembly38.dbsnp138.vcf ${REF_DIR}/
   echo bgzip Homo_sapiens_assembly38.dbsnp138.vcf
   bgzip ${REF_DIR}/Homo_sapiens_assembly38.dbsnp138.vcf
   tabix ${REF_DIR}/Homo_sapiens_assembly38.dbsnp138.vcf.gz
