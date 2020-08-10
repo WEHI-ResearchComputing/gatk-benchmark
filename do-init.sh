@@ -4,9 +4,9 @@
 # This bit will need to be modified for your enviroment
 module purge
 # WEHI
-#module load python/3.7.0 samtools/1.9 bwa
+module load python/3.7.0 samtools/1.9 bwa
 # spartan
-module load Python SAMtools tabix BWA web_proxy
+#module load Python SAMtools tabix BWA web_proxy
 #---------------------------------------------------------
 
 REF_DIR=data/reference
@@ -32,8 +32,9 @@ if [ ! -d venv ]; then
 
   virtualenv venv
   . venv/bin/activate
-  pip install janis-pipelines
-  pip install gsutil
+  pip install -r requirements.txt
+#  pip install janis-pipelines
+#  pip install gsutil
   deactivate
 
   echo done

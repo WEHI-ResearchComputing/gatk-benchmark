@@ -4,9 +4,9 @@
 # This bit will need to be modified for your enviroment
 module purge
 # WEHI
-#module load python/3.7.0 samtools/1.9 bwa
+module load python/3.7.0 samtools/1.9 bwa singularity/3.5.2
 # spartan
-module load Python Singularity web_proxy Java
+#module load Python Singularity web_proxy Java
 #---------------------------------------------------------
 
 BATCH_SYSTEM=NONE
